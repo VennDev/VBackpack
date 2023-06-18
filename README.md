@@ -1,7 +1,8 @@
-<img src="https://github.com/VennDev/VBackpack/blob/main/icon.png" alt="VBackpack" height="150" width="150" />
 # VBackpack
+<img src="https://github.com/VennDev/VBackpack/blob/main/icon.png" alt="VBackpack" height="150" width="150" />
 - A plugin for PocketMine-PMMP 5.
 - Bringing newness and utility to features for your server becomes diverse and interesting.
+- It's all done on asynchronous which makes the plugin lightweight.
 
 # Why do I have a Muqsit library?
 - Src here: [Sources](https://github.com/Muqsit/InvMenu)
