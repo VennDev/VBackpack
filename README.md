@@ -7,6 +7,11 @@
 - Src here: [Sources](https://github.com/Muqsit/InvMenu)
 - I brought and tweaked a few issues to suit this plugin!
 
+# Commands
+```
+/vbackpack or /vbp - give <player> <type> <amount>
+```
+
 # Config
 ```config
 ---
