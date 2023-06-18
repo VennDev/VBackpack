@@ -104,14 +104,24 @@ final class DataManager {
                 $name = DataManager::getConfig()->getNested("name.large");
                 break;
         }
-        $item->setCustomName($name);
+        $lastId = "";
+        for ($i = 0; $i < $amount; $i++) {
+            $id = self::generatorIdBackpack($player);
+            if ($id != $lastId) {
+                $item->setCustomName($name);
 
-        $item->getNamedTag()->setString("vbackpack", "vbackpack");
-        $item->getNamedTag()->setString("id_backpack", self::generatorIdBackpack($player));
-        $item->getNamedTag()->setInt("type_backpack", $type);
-        $item->getNamedTag()->setString("items_backpack", (new DataBackpack($player))->encode());
+                $item->getNamedTag()->setString("vbackpack", "vbackpack");
+                $item->getNamedTag()->setString("id_backpack", $id);
+                $item->getNamedTag()->setInt("type_backpack", $type);
+                $item->getNamedTag()->setString("items_backpack", (new DataBackpack($player))->encode());
 
-        $player->getInventory()->addItem($item->setCount($amount));
+                $player->getInventory()->addItem($item);
+
+                $lastId = $id;
+            } else {
+                $i--;
+            }
+        }
     }
 
     public static function openBackpack(Player $player, Item $backpack) : void {
