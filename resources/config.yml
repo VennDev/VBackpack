@@ -1,0 +1,9 @@
+---
+
+# Name of each of the type backpacks
+name:
+  small: "§aSmall Backpack"
+  medium: "§bMedium Backpack"
+  large: "§5Large Backpack"
+
+...
