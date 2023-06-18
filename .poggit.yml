@@ -5,5 +5,5 @@ branches:
 projects:
   VBackpack:
     path: ""
-    lint: false
+    lint: true
 ...
