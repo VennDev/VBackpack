@@ -5,5 +5,7 @@ branches:
 projects:
   VBackpack:
     path: ""
-    lint: false
+    lint:
+      phpstan: false
+      syntaxError: false
 ...
