@@ -32,3 +32,7 @@ name:
 <img src="https://github.com/VennDev/VBackpack/blob/main/images/small.png" alt="VBackpack" height="300" width="300" />
 <img src="https://github.com/VennDev/VBackpack/blob/main/images/medium.png" alt="VBackpack" height="300" width="300" />
 <img src="https://github.com/VennDev/VBackpack/blob/main/images/large.png" alt="VBackpack" height="300" width="300" />
+
+# Credits
+- Email: pnam5005@gmail.com
+- Paypal: lifeboat909@gmail.com
