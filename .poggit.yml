@@ -3,7 +3,6 @@ build-by-default: true
 branches:
 - main
 projects:
-  lint: false
   VBackpack:
     path: ""
     lint: false
