@@ -28,15 +28,21 @@ final class EventListener implements Listener {
 
     public function __construct() {}
 
+    /**
+     * @throws \Throwable
+     */
     public function onPlayerInteract(PlayerInteractEvent $event) : void {
-        $player = $event->getPlayer();
-        $item = $player->getInventory()->getItemInHand();
+        $fiber = new \Fiber(function() use ($event) {
+            $player = $event->getPlayer();
+            $item = $player->getInventory()->getItemInHand();
 
-        $isBackpack = DataManager::isBackpack($item);
-        if ($isBackpack) {
-            DataManager::openBackpack($player, $item);
-            $event->cancel();
-        }
+            $isBackpack = DataManager::isBackpack($item);
+            if ($isBackpack) {
+                DataManager::openBackpack($player, $item);
+                $event->cancel();
+            }
+        });
+        $fiber->start();
     }
 
 }

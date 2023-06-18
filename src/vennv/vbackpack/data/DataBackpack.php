@@ -75,10 +75,16 @@ final class DataBackpack {
         return json_decode(gzuncompress(base64_decode($items)), true);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function saveItemsCurrent(array $contents) : void {
         $this->windowCurrent["items"] = [];
         foreach ($contents as $item) {
-            $this->windowCurrent["items"][] = [$item->getCount(), ItemUtil::encodeItem($item)];
+            $fiber = new \Fiber(function() use ($item) {
+                $this->windowCurrent["items"][] = [$item->getCount(), ItemUtil::encodeItem($item)];
+            });
+            $fiber->start();
         }
     }
 

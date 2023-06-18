@@ -2,7 +2,7 @@ name: VBackpack
 api: 5.0.0
 author: VennVDev
 main: vennv\vbackpack\VBackpack
-version: 1.0.1
+version: 1.0.3
 
 commands:
     vbackpack:
