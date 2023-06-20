@@ -20,7 +20,7 @@
 
 namespace vennv\vbackpack;
 
-use vennv\muqsit\invmenu\InvMenuHandler;
+use muqsit\invmenu\InvMenuHandler;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\plugin\PluginBase;

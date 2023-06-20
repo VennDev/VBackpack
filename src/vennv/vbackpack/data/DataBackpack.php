@@ -20,10 +20,10 @@
 
 namespace vennv\vbackpack\data;
 
-use vennv\muqsit\invmenu\InvMenu;
-use vennv\muqsit\invmenu\transaction\InvMenuTransaction;
-use vennv\muqsit\invmenu\transaction\InvMenuTransactionResult;
-use vennv\muqsit\invmenu\type\InvMenuTypeIds;
+use muqsit\invmenu\InvMenu;
+use muqsit\invmenu\transaction\InvMenuTransaction;
+use muqsit\invmenu\transaction\InvMenuTransactionResult;
+use muqsit\invmenu\type\InvMenuTypeIds;
 use pocketmine\inventory\Inventory;
 use pocketmine\item\Item;
 use pocketmine\player\Player;
@@ -79,12 +79,18 @@ final class DataBackpack {
      * @throws \Throwable
      */
     public function saveItemsCurrent(array $contents) : void {
+        $fibers = [];
         $this->windowCurrent["items"] = [];
         foreach ($contents as $item) {
             $fiber = new \Fiber(function() use ($item) {
+                \Fiber::suspend();
                 $this->windowCurrent["items"][] = [$item->getCount(), ItemUtil::encodeItem($item)];
             });
             $fiber->start();
+            $fibers[] = $fiber;
+        }
+        foreach ($fibers as $fiber) {
+            $fiber->resume();
         }
     }
 

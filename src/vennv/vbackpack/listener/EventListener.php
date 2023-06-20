@@ -33,6 +33,7 @@ final class EventListener implements Listener {
      */
     public function onPlayerInteract(PlayerInteractEvent $event) : void {
         $fiber = new \Fiber(function() use ($event) {
+            \Fiber::suspend();
             $player = $event->getPlayer();
             $item = $player->getInventory()->getItemInHand();
 
@@ -43,6 +44,7 @@ final class EventListener implements Listener {
             }
         });
         $fiber->start();
+        $fiber->resume();
     }
 
 }
