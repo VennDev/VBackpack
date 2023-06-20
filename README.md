@@ -4,11 +4,11 @@
 - Bringing newness and utility to features for your server becomes diverse and interesting.
 
 # Features
+- Put everything in your backpack without filling your bags.
 - It's all done on asynchronous which makes the plugin lightweight.
 
-# Why do I have a Muqsit library?
-- Src here: [Sources](https://github.com/Muqsit/InvMenu)
-- I brought and tweaked a few issues to suit this plugin!
+# How to install it ?
+- You should install InvMenu here: [Sources](https://github.com/Muqsit/InvMenu)
 
 # Commands
 ```
