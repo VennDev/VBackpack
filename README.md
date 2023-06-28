@@ -5,7 +5,6 @@
 
 # Features
 - Put everything in your backpack without filling your bags.
-- It's all done on asynchronous which makes the plugin lightweight.
 
 # How to install it ?
 - You should install InvMenu here: [Sources](https://github.com/Muqsit/InvMenu)
