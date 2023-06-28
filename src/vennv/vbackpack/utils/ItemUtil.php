@@ -22,20 +22,6 @@ namespace vennv\vbackpack\utils;
 
 use pocketmine\item\Item;
 use pocketmine\item\StringToItemParser;
-use pocketmine\nbt\tag\ByteArrayTag;
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\DoubleTag;
-use pocketmine\nbt\tag\FloatTag;
-use pocketmine\nbt\tag\IntArrayTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\ListTag;
-use pocketmine\nbt\tag\LongTag;
-use pocketmine\nbt\tag\ShortTag;
-use pocketmine\nbt\tag\StringTag;
-
-// Copy some functions from: https://github.com/Ree-jp-minecraft/StackStrage/tree/47fc4f15bc97da3a9248b997aba0c9c64f531855/src/ree_jp/stackstorage/api
-// Thanks you so much!, Ree-jp.
 
 final class ItemUtil {
 
