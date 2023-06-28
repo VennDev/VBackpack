@@ -27,7 +27,6 @@ use muqsit\invmenu\type\InvMenuTypeIds;
 use pocketmine\inventory\Inventory;
 use pocketmine\item\Item;
 use pocketmine\player\Player;
-use vennv\vbackpack\async\Async;
 use vennv\vbackpack\utils\ItemUtil;
 use vennv\vbackpack\utils\TypeBackpack;
 
@@ -81,17 +80,9 @@ final class DataBackpack {
      */
     public function saveItemsCurrent(array $contents) : void {
         $this->windowCurrent["items"] = [];
-        Async::create(function() use ($contents) {
-            $result = [];
-            foreach ($contents as $item) {
-                $result[] = [$item->getCount(), ItemUtil::encodeItem($item)];
-            }
-            return $result;
-        })->fThen([
-            Async::SUCCESS => function($value) {
-                $this->windowCurrent["items"] = $value;
-            }
-        ]);
+        foreach ($contents as $item) {
+            $this->windowCurrent["items"][] = [$item->getCount(), ItemUtil::encodeItem($item)];
+        }
     }
 
     public function getBackpack() : void {

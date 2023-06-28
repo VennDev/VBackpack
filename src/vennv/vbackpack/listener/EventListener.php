@@ -33,16 +33,14 @@ final class EventListener implements Listener {
      * @throws \Throwable
      */
     public function onPlayerInteract(PlayerInteractEvent $event) : void {
-        Async::create(function() use ($event) {
-            $player = $event->getPlayer();
-            $item = $player->getInventory()->getItemInHand();
+        $player = $event->getPlayer();
+        $item = $player->getInventory()->getItemInHand();
 
-            $isBackpack = DataManager::isBackpack($item);
-            if ($isBackpack) {
-                DataManager::openBackpack($player, $item);
-                $event->cancel();
-            }
-        });
+        $isBackpack = DataManager::isBackpack($item);
+        if ($isBackpack) {
+            DataManager::openBackpack($player, $item);
+            $event->cancel();
+        }
     }
 
 }
