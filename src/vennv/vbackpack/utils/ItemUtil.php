@@ -40,9 +40,9 @@ final class ItemUtil {
     }
 
     public static function itemToJson(Item $item) : string {
-        $cloneItem = (clone $item)->setCount(1);
+        $cloneItem = clone $item;
         $itemNBT = $cloneItem->nbtSerialize();
-        return base64_encode(serialize($itemNBT);
+        return base64_encode(serialize($itemNBT));
     }
 
     public static function jsonToItem(string $json) : Item {
