@@ -22,6 +22,7 @@ namespace vennv\vbackpack\listener;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
+use vennv\vbackpack\async\Async;
 use vennv\vbackpack\data\DataManager;
 
 final class EventListener implements Listener {
@@ -32,8 +33,7 @@ final class EventListener implements Listener {
      * @throws \Throwable
      */
     public function onPlayerInteract(PlayerInteractEvent $event) : void {
-        $fiber = new \Fiber(function() use ($event) {
-            \Fiber::suspend();
+        Async::create(function() use ($event) {
             $player = $event->getPlayer();
             $item = $player->getInventory()->getItemInHand();
 
@@ -43,8 +43,6 @@ final class EventListener implements Listener {
                 $event->cancel();
             }
         });
-        $fiber->start();
-        $fiber->resume();
     }
 
 }
