@@ -9,7 +9,7 @@ projects:
       phpstan: false
       syntaxError: false
     libs:
-      - src: muqsit/InvMenu/InvMenu
+      - src: Muqsit/InvMenu/InvMenu
         version: ^4.6.5
         branch: "pm5"
 ...
